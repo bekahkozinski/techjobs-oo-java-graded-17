@@ -27,6 +27,9 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
+    public Job(String productTester, Employer acme, Location desert, PositionType qualityControl, CoreCompetency persistence) {
+    }
+
     public String getName() {
         return name;
     }
