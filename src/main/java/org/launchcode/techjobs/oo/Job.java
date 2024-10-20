@@ -18,7 +18,7 @@ public class Job {
         nextId++;
     }
 
-    public Job(int id, String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
         this.employer = employer;
@@ -27,8 +27,8 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-    public Job(String productTester, Employer acme, Location desert, PositionType qualityControl, CoreCompetency persistence) {
-    }
+//    public Job(String productTester, Employer acme, Location desert, PositionType qualityControl, CoreCompetency persistence) {
+//    }
 
     public String getName() {
         return name;
@@ -86,6 +86,26 @@ public class Job {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
+    @Override
+    public String toString() {
+
+        String checkedName = (name == null || name.isEmpty()) ? "Data not available" : name;
+        String checkedEmployer = (employer == null || employer.getValue().isEmpty()) ? "Data not available" : employer.getValue();
+        String checkedLocation = (location == null || location.getValue().isEmpty()) ? "Data not available" : location.getValue();
+        String checkedPositionType = (positionType == null || positionType.getValue().isEmpty()) ? "Data not available" : positionType.getValue();
+        String checkedCoreCompetency = (coreCompetency == null || coreCompetency.getValue().isEmpty()) ? "Data not available" : coreCompetency.getValue();
+
+        return System.lineSeparator() + "ID: " + id + System.lineSeparator() +
+                "Name: " + checkedName + System.lineSeparator() +
+                "Employer: " + checkedEmployer + System.lineSeparator() +
+                "Location: " + checkedLocation + System.lineSeparator() +
+                "Position Type: " + checkedPositionType + System.lineSeparator() +
+                "Core Competency: " + checkedCoreCompetency + System.lineSeparator();
+    }
+
+
+
 // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
     //  other five fields. The second constructor should also call the first in order to initialize
     //  the 'id' field.
