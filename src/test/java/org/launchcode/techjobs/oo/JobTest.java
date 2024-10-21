@@ -11,8 +11,7 @@ public class JobTest {
     public void testSettingJobId() {
         Job job1 = new Job();
         Job job2 = new Job();
-        assertNotEquals(2, job1.getId());
-        assertNotEquals(3, job2.getId());
+        assertNotEquals(job1.getId(), job2.getId());
     }
 
     //Test 2
@@ -64,40 +63,29 @@ public class JobTest {
         Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         assertEquals(
-                (System.lineSeparator() + "ID: " + 1 + System.lineSeparator() +
+                (System.lineSeparator() + "ID: " + job1.getId() + System.lineSeparator() +
                 "Name: " + "Product tester" + System.lineSeparator() +
                 "Employer: " + "ACME" + System.lineSeparator() +
                 "Location: " + "Desert" + System.lineSeparator() +
                 "Position Type: " + "Quality control" + System.lineSeparator() +
                 "Core Competency: " + "Persistence" + System.lineSeparator()),
 
-                (System.lineSeparator() + "ID: " + job1.getId()) + System.lineSeparator() +
-                "Name: " + job1.getName() + System.lineSeparator() +
-                "Employer: " + job1.getEmployer() + System.lineSeparator() +
-                "Location: " + job1.getLocation() + System.lineSeparator() +
-                "Position Type: " + job1.getPositionType() + System.lineSeparator() +
-                "Core Competency: " + job1.getCoreCompetency() + System.lineSeparator()
+                (job1.toString())
                 );
     }
 
     @Test
     public void testToStringHandlesEmptyField() {
         Job job1 = new Job("", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        System.out.println(job1.getEmployer());
         assertEquals(
-                (System.lineSeparator() + "ID: " + 1 + System.lineSeparator() +
+                (System.lineSeparator() + "ID: " + job1.getId() + System.lineSeparator() +
                         "Name: " + "Data not available" + System.lineSeparator() +
                         "Employer: " + "ACME" + System.lineSeparator() +
                         "Location: " + "Desert" + System.lineSeparator() +
                         "Position Type: " + "Quality control" + System.lineSeparator() +
                         "Core Competency: " + "Persistence" + System.lineSeparator()),
 
-                (System.lineSeparator() + "ID: " + job1.getId()) + System.lineSeparator() +
-                        "Name: " + job1.getName() + System.lineSeparator() +
-                        "Employer: " + job1.getEmployer() + System.lineSeparator() +
-                        "Location: " + job1.getLocation() + System.lineSeparator() +
-                        "Position Type: " + job1.getPositionType() + System.lineSeparator() +
-                        "Core Competency: " + job1.getCoreCompetency() + System.lineSeparator()
+                (job1.toString())
 
         );
     }

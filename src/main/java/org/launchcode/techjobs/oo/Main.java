@@ -1,4 +1,7 @@
 package org.launchcode.techjobs.oo;
+
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -11,6 +14,8 @@ public class Main {
 //        jobs.add(job2);
 //        jobs.add(job3);
 //
+//        System.out.println(job1.getEmployer());
+
 //        for (Job job : jobs){
 //            System.out.println(job);
 //        }
